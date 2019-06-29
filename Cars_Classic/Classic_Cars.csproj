@@ -93,16 +93,25 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\IMG_0166.PNG" />
+    <None Include="Resources\BackgroundImage\IMG_0166.PNG" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\IMG_0162.PNG" />
+    <None Include="Resources\BackgroundImage\IMG_0162.PNG" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\IMG_0171.PNG" />
+    <None Include="Resources\BackgroundImage\IMG_0171.PNG" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\IMG_01711.png" />
+    <None Include="Resources\BackgroundImage\IMG_01711.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\CarImages\1958 MG MGA 1500.jpg" />
+    <Content Include="Resources\CarImages\1963 Ford Falcon Futura.jpg" />
+    <Content Include="Resources\CarImages\1966 Cherolet Nova.jpg" />
+    <Content Include="Resources\CarImages\1966 Chevrolet Corvette.jpg" />
+    <Content Include="Resources\CarImages\1966 Ford Mustang.jpg" />
+    <Content Include="Resources\CarImages\1967 Chevrolet Corvette.jpg" />
+    <Content Include="Resources\CarImages\1969 Plymouth RoadRunner.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

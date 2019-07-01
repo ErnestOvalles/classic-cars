@@ -126,6 +126,7 @@
             this.btn_signup.TabIndex = 12;
             this.btn_signup.Text = "Signup";
             this.btn_signup.UseVisualStyleBackColor = false;
+            this.btn_signup.Click += new System.EventHandler(this.Btn_signup_Click);
             // 
             // btn_back
             // 
@@ -139,7 +140,7 @@
             this.btn_back.UseVisualStyleBackColor = false;
             this.btn_back.Click += new System.EventHandler(this.Btn_back_Click);
             // 
-            // SignUp
+            // signUp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -158,7 +159,7 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.pictureBox1);
             this.DoubleBuffered = true;
-            this.Name = "SignUp";
+            this.Name = "signUp";
             this.Text = "Signup";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

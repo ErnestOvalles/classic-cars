@@ -19,11 +19,22 @@ namespace Classic_Cars
 
         private void btn_login_Click(object sender, EventArgs e)
         {
-            if (usernameTB.Text == passwordTB.Text)
+            if (!((String.IsNullOrEmpty(usernameTB.Text)) || (String.IsNullOrEmpty(passwordTB.Text))))
             {
-                this.Hide();
-                CatalogScreen catalogScreen = new CatalogScreen();
-                catalogScreen.Show();
+                if (usernameTB.Text == passwordTB.Text)
+                {
+                    // Have to insert database connection for validation check
+                    this.Hide();
+                    CatalogScreen catalogScreen = new CatalogScreen();
+                    catalogScreen.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Username and Password is wrong, try again!");
+                }
+            } else
+            {
+                MessageBox.Show("Please enter a valid Username & Password");
             }
         }
 

@@ -42,7 +42,7 @@ namespace Classic_Cars
         {
             
             this.Hide();
-            signUp signUp = new signUp();
+            SignUp signUp = new SignUp();
             signUp.Show();
         }
     }

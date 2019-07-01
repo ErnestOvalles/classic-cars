@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Classic_Cars
 {
-    public partial class signUp : Form
+    public partial class SignUp : Form
     {
-        public signUp()
+        public SignUp()
         {
             InitializeComponent();
         }
@@ -27,7 +27,7 @@ namespace Classic_Cars
 
         private void Btn_signup_Click(object sender, EventArgs e)
         {
-            if (!(String.IsNullOrEmpty(usernameTB.Text)) || (String.IsNullOrEmpty(passwordTB.Text)) || (String.IsNullOrEmpty(emailTB.Text)))
+            if (!((String.IsNullOrEmpty(usernameTB.Text)) || (String.IsNullOrEmpty(passwordTB.Text)) || (String.IsNullOrEmpty(emailTB.Text))))
             {
                 // Have to insert database connection for adding accounts to DB
                 MessageBox.Show("Account Created! Please login");
@@ -36,7 +36,7 @@ namespace Classic_Cars
                 login.Show();
             } else
             {
-                MessageBox.Show("Please make sure you enter a valid Username, Passaord and Email");
+                MessageBox.Show("Please make sure you enter a valid Username, Password and Email");
             }
         }
     }

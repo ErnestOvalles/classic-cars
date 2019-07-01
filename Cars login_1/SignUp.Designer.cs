@@ -1,6 +1,6 @@
 ﻿namespace Classic_Cars
 {
-    partial class signUp
+    partial class SignUp
     {
         /// <summary>
         /// Required designer variable.

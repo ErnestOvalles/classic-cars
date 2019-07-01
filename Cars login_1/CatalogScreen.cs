@@ -8,18 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Cars_login_1
+namespace Classic_Cars
 {
-    public partial class Form1 : Form
+    public partial class CatalogScreen : Form
     {
-        public Form1()
+        public CatalogScreen()
         {
             InitializeComponent();
-        }
-
-        private void btn_login_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

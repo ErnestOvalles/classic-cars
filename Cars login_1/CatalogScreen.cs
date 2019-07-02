@@ -148,6 +148,7 @@ namespace Classic_Cars
                 button.TabIndex = 3;
                 button.Text = "Add to Cart";
                 button.UseVisualStyleBackColor = true;
+                button.Click += new System.EventHandler(this.AddToCartBTN_Click);
 
                 RichTextBox richTextBox = new RichTextBox();
                 richTextBox.BackColor = System.Drawing.SystemColors.ActiveBorder;
@@ -190,7 +191,7 @@ namespace Classic_Cars
         {
             Button button = new Button();
             button = (Button) sender;
-            int index = int.Parse(button.Text);
+            int index = int.Parse(button.Name.ToString());
 
             String sqlQuery = "SELECT * FROM CarsDB where Id=@ID";
             SqlCommand command = new SqlCommand(sqlQuery, connection);
@@ -202,10 +203,14 @@ namespace Classic_Cars
             command.Parameters.AddWithValue("@ID", listId[index]);
             command.Parameters.AddWithValue("@USERNAME", loggedInInput.Text);
 
-
-
             this.goToCartBTN.Visible = true;
             MessageBox.Show("Item added to cart");
+        }
+
+        private void GoToCartBTN_Click(object sender, EventArgs e)
+        {
+            ShowCart showCart = new ShowCart();
+            showCart.Show();
         }
     }
 }

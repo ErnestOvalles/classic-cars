@@ -73,6 +73,7 @@
             this.goToCartBTN.TabIndex = 6;
             this.goToCartBTN.Text = "Go to Cart";
             this.goToCartBTN.UseVisualStyleBackColor = true;
+            this.goToCartBTN.Click += new System.EventHandler(this.GoToCartBTN_Click);
             // 
             // viewPurchasesBTN
             // 

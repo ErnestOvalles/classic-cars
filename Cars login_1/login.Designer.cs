@@ -30,12 +30,13 @@
         {
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.passwordTB = new System.Windows.Forms.MaskedTextBox();
             this.usernameTB = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.btn_login = new System.Windows.Forms.Button();
             this.btn_signup = new System.Windows.Forms.Button();
+            this.passwordTB = new System.Windows.Forms.TextBox();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -60,14 +61,6 @@
             this.button1.TabIndex = 1;
             this.button1.UseVisualStyleBackColor = false;
             // 
-            // passwordTB
-            // 
-            this.passwordTB.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.passwordTB.Location = new System.Drawing.Point(646, 337);
-            this.passwordTB.Name = "passwordTB";
-            this.passwordTB.Size = new System.Drawing.Size(100, 20);
-            this.passwordTB.TabIndex = 2;
-            // 
             // usernameTB
             // 
             this.usernameTB.BackColor = System.Drawing.SystemColors.ControlLight;
@@ -80,7 +73,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.label1.Location = new System.Drawing.Point(582, 317);
+            this.label1.Location = new System.Drawing.Point(582, 313);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(58, 13);
             this.label1.TabIndex = 4;
@@ -90,7 +83,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.label2.Location = new System.Drawing.Point(582, 344);
+            this.label2.Location = new System.Drawing.Point(584, 339);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(56, 13);
             this.label2.TabIndex = 5;
@@ -120,7 +113,27 @@
             this.btn_signup.UseVisualStyleBackColor = false;
             this.btn_signup.Click += new System.EventHandler(this.Btn_signup_Click);
             // 
-            // Form1
+            // passwordTB
+            // 
+            this.passwordTB.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.passwordTB.Location = new System.Drawing.Point(646, 336);
+            this.passwordTB.Name = "passwordTB";
+            this.passwordTB.PasswordChar = '*';
+            this.passwordTB.Size = new System.Drawing.Size(100, 20);
+            this.passwordTB.TabIndex = 8;
+            this.passwordTB.UseSystemPasswordChar = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(168, 391);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 9;
+            this.button2.Text = "button2";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.Button2_Click);
+            // 
+            // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -128,16 +141,17 @@
             this.BackgroundImage = global::Classic_Cars.Properties.Resources.IMG_0162;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1064, 681);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.passwordTB);
             this.Controls.Add(this.btn_signup);
             this.Controls.Add(this.btn_login);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.usernameTB);
-            this.Controls.Add(this.passwordTB);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.pictureBox1);
             this.DoubleBuffered = true;
-            this.Name = "Form1";
+            this.Name = "Login";
             this.Text = "Login";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -149,12 +163,13 @@
 
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.MaskedTextBox passwordTB;
         private System.Windows.Forms.TextBox usernameTB;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btn_login;
         private System.Windows.Forms.Button btn_signup;
+        private System.Windows.Forms.TextBox passwordTB;
+        private System.Windows.Forms.Button button2;
     }
 }
 

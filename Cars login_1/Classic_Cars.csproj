@@ -144,16 +144,16 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\IMG_0166.PNG" />
+    <None Include="Resources\Backgrounds\IMG_0166.PNG" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\IMG_0162.PNG" />
+    <None Include="Resources\Backgrounds\IMG_0162.PNG" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\IMG_0171.PNG" />
+    <None Include="Resources\Backgrounds\IMG_0171.PNG" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\IMG_01711.png" />
+    <None Include="Resources\Backgrounds\IMG_01711.png" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="CarsDB.mdf">
@@ -163,6 +163,13 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>CarsDB.mdf</DependentUpon>
     </Content>
+    <Content Include="Resources\CarIMGs\IMG_1.jpg" />
+    <Content Include="Resources\CarIMGs\IMG_2.jpg" />
+    <Content Include="Resources\CarIMGs\IMG_3.jpg" />
+    <Content Include="Resources\CarIMGs\IMG_4.jpg" />
+    <Content Include="Resources\CarIMGs\IMG_5.jpg" />
+    <Content Include="Resources\CarIMGs\IMG_6.jpg" />
+    <Content Include="Resources\CarIMGs\IMG_7.jpg" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
@@ -176,5 +183,6 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -15,15 +15,21 @@ namespace Classic_Cars
     public partial class CatalogScreen : Form
     {
         SqlConnection connection = new SqlConnection();
+
+        List<int> listId = new List<int>();
+        List<String> listMake = new List<String>();
+        List<String> listModel = new List<String>();
+        List<int> listYear = new List<int>();
+        List<int> listMSRP = new List<int>();
+
         public CatalogScreen()
         {
             connection.ConnectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\aruns\\Downloads\\CarsDB.mdf;Integrated Security=True;Connect Timeout=30";
             connection.Open();
 
             InitializeComponent();
-            this.AutoScroll = true;
-            this.ResizeRedraw = false;
             this.goToCartBTN.Visible = false;
+            this.DoubleBuffered = true;
 
         }
 
@@ -41,21 +47,29 @@ namespace Classic_Cars
 
         private void CatalogScreen_Load(object sender, EventArgs e)
         {
-            String rowCountQuery = "SELECT COUNT(Id) FROM CarsDB";
+            String sqlQueryList = "SELECT * FROM CarsDB";
+            SqlCommand commandList = new SqlCommand(sqlQueryList, connection);
+            SqlDataReader reader = commandList.ExecuteReader();
 
-            SqlCommand rowCountCmd = new SqlCommand(rowCountQuery, connection);
-            int rowCount = ((int) rowCountCmd.ExecuteScalar());
-
-            //int rowCount = int.Parse(dataTable.Rows[0][0].ToString());
-            for (int i = 0; i <= rowCount; i++)
+            while (reader.Read())
             {
-                String sqlQuery = "SELECT * FROM CarsDB WHERE Id=@ID";
-                SqlCommand command = new SqlCommand(sqlQuery, connection);
-                command.Parameters.AddWithValue("@ID", i);
+                listId.Add(int.Parse(reader[0].ToString()));
+                listMake.Add(reader[1].ToString());
+                listModel.Add(reader[2].ToString());
+                listYear.Add(int.Parse(reader[3].ToString()));
+                listMSRP.Add(int.Parse(reader[4].ToString()));
+            }
+            reader.Close();
 
+            String rowCountQuery = "SELECT COUNT(Id) FROM CarsDB";
+            SqlCommand rowCountCmd = new SqlCommand(rowCountQuery, connection);
+            int rowCount = ((int)rowCountCmd.ExecuteScalar());
+
+            for (int i = 0; i < rowCount; i++)
+            {
                 Panel panel = new Panel();
                 panel.Location = new System.Drawing.Point(12, ((240 * i) + 128));
-                panel.Name = "panel" + i;
+                panel.Name = "panelCart" + i;
                 panel.Size = new System.Drawing.Size(1000, 200);
                 panel.BackColor = System.Drawing.SystemColors.ActiveBorder;
                 panel.TabIndex = 0;
@@ -63,7 +77,7 @@ namespace Classic_Cars
                 Button button = new Button();
                 button.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                 button.Location = new System.Drawing.Point(854, 3);
-                button.Name = "button" + i;
+                button.Name = i.ToString();
                 button.Size = new System.Drawing.Size(143, 100);
                 button.TabIndex = 3;
                 button.Text = "Add to Cart";
@@ -72,17 +86,27 @@ namespace Classic_Cars
                 RichTextBox richTextBox = new RichTextBox();
                 richTextBox.BackColor = System.Drawing.SystemColors.ActiveBorder;
                 richTextBox.Location = new System.Drawing.Point(193, 3);
-                richTextBox.Name = "richTextBox" + i;
+                richTextBox.Name = "richTextBoxCart" + i;
                 richTextBox.Size = new System.Drawing.Size(655, 194);
                 richTextBox.TabIndex = 2;
                 richTextBox.Text = "";
+                richTextBox.ReadOnly = true;
+
+                richTextBox.Font = new Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                richTextBox.SelectionIndent = 20;
+                richTextBox.AppendText(Environment.NewLine + "Make: " + listMake[i]);
+                richTextBox.AppendText(Environment.NewLine + "Model: " + listModel[i]);
+                richTextBox.AppendText(Environment.NewLine + "Year: " + listYear[i]);
+                richTextBox.AppendText(Environment.NewLine + "Price: " + listMSRP[i]);
 
                 PictureBox picture = new PictureBox();
                 picture.Location = new System.Drawing.Point(3, 3);
-                picture.Name = "pictureBox" + i;
+                picture.Name = "pictureBoxCart" + i;
                 picture.Size = new System.Drawing.Size(184, 194);
                 picture.TabIndex = 0;
                 picture.TabStop = false;
+                picture.BackgroundImage = global::Classic_Cars.Properties.Resources.IMG_1;
+                picture.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
 
                 panel.Controls.Add(button);
                 panel.Controls.Add(richTextBox);
@@ -113,6 +137,16 @@ namespace Classic_Cars
 
         private void AddToCartBTN_Click(object sender, EventArgs e)
         {
+            Button button = new Button();
+            button = (Button) sender;
+            int index = int.Parse(button.Text);
+
+            String sqlQuery = "SELECT * FROM CarsDB where Id=@ID";
+            SqlCommand command = new SqlCommand(sqlQuery, connection);
+            command.Parameters.AddWithValue("@ID", listId[index]);
+            command.ExecuteNonQuery();
+
+
             this.goToCartBTN.Visible = true;
             MessageBox.Show("Item added to cart");
         }

@@ -41,7 +41,8 @@
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.Transparent;
+            this.panel2.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.panel2.Controls.Add(this.goToCartBTN);
             this.panel2.Controls.Add(this.viewPurchasesBTN);
             this.panel2.Controls.Add(this.signOutBTN);
@@ -97,6 +98,7 @@
             // 
             // pictureBox2
             // 
+            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox2.BackgroundImage = global::Classic_Cars.Properties.Resources.IMG_01711;
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox2.Image = global::Classic_Cars.Properties.Resources.IMG_01711;
@@ -120,6 +122,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.BackgroundImage = global::Classic_Cars.Properties.Resources.IMG_0166;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;

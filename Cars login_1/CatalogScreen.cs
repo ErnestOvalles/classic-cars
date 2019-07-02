@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data;
 using System.Data.SqlClient;
+using System.IO;
 
 namespace Classic_Cars
 {
@@ -21,6 +22,7 @@ namespace Classic_Cars
         List<String> listModel = new List<String>();
         List<int> listYear = new List<int>();
         List<int> listMSRP = new List<int>();
+        List<byte[]> listBytes = new List<byte[]>();
 
         public CatalogScreen()
         {
@@ -58,6 +60,7 @@ namespace Classic_Cars
                 listModel.Add(reader[2].ToString());
                 listYear.Add(int.Parse(reader[3].ToString()));
                 listMSRP.Add(int.Parse(reader[4].ToString()));
+                listBytes.Add((byte[]) reader[5]);
             }
             reader.Close();
 
@@ -68,7 +71,7 @@ namespace Classic_Cars
             for (int i = 0; i < rowCount; i++)
             {
                 Panel panel = new Panel();
-                panel.Location = new System.Drawing.Point(12, ((240 * i) + 128));
+                panel.Location = new System.Drawing.Point(12, ((240 * i) + 228));
                 panel.Name = "panelCart" + i;
                 panel.Size = new System.Drawing.Size(1000, 200);
                 panel.BackColor = System.Drawing.SystemColors.ActiveBorder;
@@ -106,6 +109,9 @@ namespace Classic_Cars
                 picture.TabIndex = 0;
                 picture.TabStop = false;
                 picture.BackgroundImage = global::Classic_Cars.Properties.Resources.IMG_1;
+
+                Image newImage = byteArrayToImage(listBytes[i]);
+                picture.BackgroundImage = newImage;
                 picture.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
 
                 panel.Controls.Add(button);
@@ -117,6 +123,14 @@ namespace Classic_Cars
 
         }
 
+        private Image byteArrayToImage(byte[] v)
+        {
+            using (var ms = new MemoryStream(v))
+            {
+                return Image.FromStream(ms);
+            }
+        }
+
         private void SignOutBTN_Click(object sender, EventArgs e)
         {
             Login login = new Login();
@@ -126,13 +140,22 @@ namespace Classic_Cars
 
         private void ViewPurchasesBTN_Click(object sender, EventArgs e)
         {
+            String sqlQuery = null;
             if (loggedInInput.Text == "Admin")
             {
-
+                sqlQuery = "SELECT * FROM CarsDB";
             } else
             {
-
+                sqlQuery = "SELECT * FROM CarsDB WHERE Id=2";
             }
+            SqlCommand command = new SqlCommand(sqlQuery, connection);
+            command.Parameters.AddWithValue("@USERNAME", loggedInInput.Text);
+        }
+
+        private void CategorySelectBTN_Click(object sender, EventArgs e)
+        {
+            Button button = new Button();
+            button = (Button)sender;
         }
 
         private void AddToCartBTN_Click(object sender, EventArgs e)
@@ -145,6 +168,12 @@ namespace Classic_Cars
             SqlCommand command = new SqlCommand(sqlQuery, connection);
             command.Parameters.AddWithValue("@ID", listId[index]);
             command.ExecuteNonQuery();
+
+            String sqlQueryUpdateUsername = "";
+            command = new SqlCommand(sqlQueryUpdateUsername, connection);
+            command.Parameters.AddWithValue("@ID", listId[index]);
+            command.Parameters.AddWithValue("@USERNAME", loggedInInput.Text);
+
 
 
             this.goToCartBTN.Visible = true;

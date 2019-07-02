@@ -51,7 +51,7 @@
             this.panel2.Controls.Add(this.loggedInAs);
             this.panel2.Location = new System.Drawing.Point(15, 12);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1000, 100);
+            this.panel2.Size = new System.Drawing.Size(1000, 200);
             this.panel2.TabIndex = 1;
             // 
             // goToCartBTN

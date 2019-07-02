@@ -60,8 +60,8 @@ namespace Classic_Cars
 
         private void Button2_Click(object sender, EventArgs e)
         {
-            TestForm test = new TestForm();
-            test.Show();
+            testform testform = new testform();
+            testform.Show();
         }
     }
 }

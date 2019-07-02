@@ -24,9 +24,10 @@ namespace Classic_Cars
                 if (usernameTB.Text == passwordTB.Text)
                 {
                     // Have to insert database connection for validation check
-                    this.Hide();
                     CatalogScreen catalogScreen = new CatalogScreen();
                     catalogScreen.Show();
+                    catalogScreen.LoggedInValue = usernameTB.Text;
+                    this.Hide();
                 }
                 else
                 {
@@ -39,11 +40,10 @@ namespace Classic_Cars
         }
 
         private void Btn_signup_Click(object sender, EventArgs e)
-        {
-            
-            this.Hide();
+        { 
             SignUp signUp = new SignUp();
             signUp.Show();
+            this.Hide();
         }
     }
 }

@@ -53,6 +53,18 @@
     <Compile Include="CatalogScreen.Designer.cs">
       <DependentUpon>CatalogScreen.cs</DependentUpon>
     </Compile>
+    <Compile Include="ShowCart.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ShowCart.Designer.cs">
+      <DependentUpon>ShowCart.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ShowPurchases.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ShowPurchases.Designer.cs">
+      <DependentUpon>ShowPurchases.cs</DependentUpon>
+    </Compile>
     <Compile Include="SignUp.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -83,6 +95,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="ShowCart.resx">
+      <DependentUpon>ShowCart.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ShowPurchases.resx">
+      <DependentUpon>ShowPurchases.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SignUp.resx">
       <DependentUpon>SignUp.cs</DependentUpon>
     </EmbeddedResource>

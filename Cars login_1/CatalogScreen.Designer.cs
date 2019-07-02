@@ -35,6 +35,11 @@
             this.loggedInInput = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.loggedInAs = new System.Windows.Forms.Label();
+            this.categoryClassic = new System.Windows.Forms.Button();
+            this.categorySUV = new System.Windows.Forms.Button();
+            this.categorySedan = new System.Windows.Forms.Button();
+            this.categoryAll = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
@@ -43,6 +48,11 @@
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.panel2.Controls.Add(this.label1);
+            this.panel2.Controls.Add(this.categoryAll);
+            this.panel2.Controls.Add(this.categorySedan);
+            this.panel2.Controls.Add(this.categorySUV);
+            this.panel2.Controls.Add(this.categoryClassic);
             this.panel2.Controls.Add(this.goToCartBTN);
             this.panel2.Controls.Add(this.viewPurchasesBTN);
             this.panel2.Controls.Add(this.signOutBTN);
@@ -57,7 +67,7 @@
             // goToCartBTN
             // 
             this.goToCartBTN.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.goToCartBTN.Location = new System.Drawing.Point(854, 65);
+            this.goToCartBTN.Location = new System.Drawing.Point(854, 41);
             this.goToCartBTN.Name = "goToCartBTN";
             this.goToCartBTN.Size = new System.Drawing.Size(143, 32);
             this.goToCartBTN.TabIndex = 6;
@@ -118,6 +128,60 @@
             this.loggedInAs.TabIndex = 0;
             this.loggedInAs.Text = "Logged in as:";
             // 
+            // categoryClassic
+            // 
+            this.categoryClassic.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.categoryClassic.Location = new System.Drawing.Point(451, 146);
+            this.categoryClassic.Name = "categoryClassic";
+            this.categoryClassic.Size = new System.Drawing.Size(178, 51);
+            this.categoryClassic.TabIndex = 7;
+            this.categoryClassic.Text = "Classics";
+            this.categoryClassic.UseVisualStyleBackColor = true;
+            this.categoryClassic.Click += new System.EventHandler(this.CategorySelectBTN_Click);
+            // 
+            // categorySUV
+            // 
+            this.categorySUV.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.categorySUV.Location = new System.Drawing.Point(635, 146);
+            this.categorySUV.Name = "categorySUV";
+            this.categorySUV.Size = new System.Drawing.Size(178, 51);
+            this.categorySUV.TabIndex = 8;
+            this.categorySUV.Text = "SUV";
+            this.categorySUV.UseVisualStyleBackColor = true;
+            this.categorySUV.Click += new System.EventHandler(this.CategorySelectBTN_Click);
+            // 
+            // categorySedan
+            // 
+            this.categorySedan.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.categorySedan.Location = new System.Drawing.Point(819, 146);
+            this.categorySedan.Name = "categorySedan";
+            this.categorySedan.Size = new System.Drawing.Size(178, 51);
+            this.categorySedan.TabIndex = 9;
+            this.categorySedan.Text = "Sedans";
+            this.categorySedan.UseVisualStyleBackColor = true;
+            this.categorySedan.Click += new System.EventHandler(this.CategorySelectBTN_Click);
+            // 
+            // categoryAll
+            // 
+            this.categoryAll.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.categoryAll.Location = new System.Drawing.Point(267, 146);
+            this.categoryAll.Name = "categoryAll";
+            this.categoryAll.Size = new System.Drawing.Size(178, 51);
+            this.categoryAll.TabIndex = 10;
+            this.categoryAll.Text = "All";
+            this.categoryAll.UseVisualStyleBackColor = true;
+            this.categoryAll.Click += new System.EventHandler(this.CategorySelectBTN_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(28, 156);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(233, 31);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Select Car Type:";
+            // 
             // CatalogScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -147,5 +211,10 @@
         private System.Windows.Forms.Label loggedInAs;
         private System.Windows.Forms.Button viewPurchasesBTN;
         private System.Windows.Forms.Button goToCartBTN;
+        private System.Windows.Forms.Button categorySedan;
+        private System.Windows.Forms.Button categorySUV;
+        private System.Windows.Forms.Button categoryClassic;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button categoryAll;
     }
 }

@@ -49,8 +49,71 @@ namespace Classic_Cars
 
         private void CatalogScreen_Load(object sender, EventArgs e)
         {
+        }
+
+        private Image byteArrayToImage(byte[] v)
+        {
+            using (var ms = new MemoryStream(v))
+            {
+                return Image.FromStream(ms);
+            }
+        }
+
+        private void SignOutBTN_Click(object sender, EventArgs e)
+        {
+            Login login = new Login();
+            login.Show();
+            this.Close();
+        }
+
+        private void ViewPurchasesBTN_Click(object sender, EventArgs e)
+        {
+            String sqlQuery = null;
+            if (loggedInInput.Text == "Admin")
+            {
+                sqlQuery = "SELECT * FROM CarsDB";
+            } else
+            {
+                sqlQuery = "SELECT * FROM CarsDB WHERE Id=2";
+            }
+            SqlCommand command = new SqlCommand(sqlQuery, connection);
+            command.Parameters.AddWithValue("@USERNAME", loggedInInput.Text);
+        }
+
+        private void CategorySelectBTN_Click(object sender, EventArgs e)
+        {
+            this.Refresh();
+
+            Button buttonSender = new Button();
+            buttonSender = (Button)sender;
+
             String sqlQueryList = "SELECT * FROM CarsDB";
+            String rowCountQuery = "SELECT COUNT(Id) FROM CarsDB";
+            String queryType = "ALL";
+            if (buttonSender.Text == "Classics")
+            {
+                queryType = "CLASSIC";
+                sqlQueryList = "SELECT * FROM CarsDB WHERE CarType=@TYPE";
+                rowCountQuery = "SELECT COUNT(Id) FROM CarsDB WHERE CarType=@TYPE";
+            } else if (buttonSender.Text == "SUV")
+            {
+                queryType = "SUV";
+                sqlQueryList = "SELECT * FROM CarsDB WHERE CarType=@TYPE";
+                rowCountQuery = "SELECT COUNT(Id) FROM CarsDB WHERE CarType=@TYPE";
+            } else if (buttonSender.Text == "Sedans")
+            {
+                queryType = "SEDAN";
+                sqlQueryList = "SELECT * FROM CarsDB WHERE CarType=@TYPE";
+                rowCountQuery = "SELECT COUNT(Id) FROM CarsDB WHERE CarType=@TYPE";
+            } else if (buttonSender.Text == "ALL")
+            {
+                queryType = "ALL";
+                sqlQueryList = "SELECT * FROM CarsDB";
+                rowCountQuery = "SELECT COUNT(Id) FROM CarsDB";
+            }
+
             SqlCommand commandList = new SqlCommand(sqlQueryList, connection);
+            commandList.Parameters.AddWithValue("@TYPE", queryType);
             SqlDataReader reader = commandList.ExecuteReader();
 
             while (reader.Read())
@@ -60,12 +123,12 @@ namespace Classic_Cars
                 listModel.Add(reader[2].ToString());
                 listYear.Add(int.Parse(reader[3].ToString()));
                 listMSRP.Add(int.Parse(reader[4].ToString()));
-                listBytes.Add((byte[]) reader[5]);
+                listBytes.Add((byte[])reader[5]);
             }
             reader.Close();
 
-            String rowCountQuery = "SELECT COUNT(Id) FROM CarsDB";
             SqlCommand rowCountCmd = new SqlCommand(rowCountQuery, connection);
+            rowCountCmd.Parameters.AddWithValue("@TYPE", queryType);
             int rowCount = ((int)rowCountCmd.ExecuteScalar());
 
             for (int i = 0; i < rowCount; i++)
@@ -121,41 +184,6 @@ namespace Classic_Cars
                 this.Controls.Add(panel);
             }
 
-        }
-
-        private Image byteArrayToImage(byte[] v)
-        {
-            using (var ms = new MemoryStream(v))
-            {
-                return Image.FromStream(ms);
-            }
-        }
-
-        private void SignOutBTN_Click(object sender, EventArgs e)
-        {
-            Login login = new Login();
-            login.Show();
-            this.Close();
-        }
-
-        private void ViewPurchasesBTN_Click(object sender, EventArgs e)
-        {
-            String sqlQuery = null;
-            if (loggedInInput.Text == "Admin")
-            {
-                sqlQuery = "SELECT * FROM CarsDB";
-            } else
-            {
-                sqlQuery = "SELECT * FROM CarsDB WHERE Id=2";
-            }
-            SqlCommand command = new SqlCommand(sqlQuery, connection);
-            command.Parameters.AddWithValue("@USERNAME", loggedInInput.Text);
-        }
-
-        private void CategorySelectBTN_Click(object sender, EventArgs e)
-        {
-            Button button = new Button();
-            button = (Button)sender;
         }
 
         private void AddToCartBTN_Click(object sender, EventArgs e)

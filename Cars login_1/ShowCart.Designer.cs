@@ -29,7 +29,9 @@
         private void InitializeComponent()
         {
             this.closeBTN = new System.Windows.Forms.Panel();
+            this.loggedInInput = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.loggedInAs = new System.Windows.Forms.Label();
             this.cartLabel = new System.Windows.Forms.Label();
             this.showPurchasesBTN = new System.Windows.Forms.Button();
             this.checkOutBTN = new System.Windows.Forms.Button();
@@ -43,7 +45,9 @@
             // closeBTN
             // 
             this.closeBTN.BackColor = System.Drawing.Color.Transparent;
+            this.closeBTN.Controls.Add(this.loggedInInput);
             this.closeBTN.Controls.Add(this.button1);
+            this.closeBTN.Controls.Add(this.loggedInAs);
             this.closeBTN.Controls.Add(this.cartLabel);
             this.closeBTN.Controls.Add(this.showPurchasesBTN);
             this.closeBTN.Controls.Add(this.checkOutBTN);
@@ -53,6 +57,16 @@
             this.closeBTN.Name = "closeBTN";
             this.closeBTN.Size = new System.Drawing.Size(1045, 100);
             this.closeBTN.TabIndex = 0;
+            // 
+            // loggedInInput
+            // 
+            this.loggedInInput.AutoSize = true;
+            this.loggedInInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.loggedInInput.Location = new System.Drawing.Point(179, 11);
+            this.loggedInInput.Name = "loggedInInput";
+            this.loggedInInput.Size = new System.Drawing.Size(78, 29);
+            this.loggedInInput.TabIndex = 7;
+            this.loggedInInput.Text = "NULL";
             // 
             // button1
             // 
@@ -66,11 +80,21 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.Button1_Click);
             // 
+            // loggedInAs
+            // 
+            this.loggedInAs.AutoSize = true;
+            this.loggedInAs.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.loggedInAs.Location = new System.Drawing.Point(2, 11);
+            this.loggedInAs.Name = "loggedInAs";
+            this.loggedInAs.Size = new System.Drawing.Size(171, 29);
+            this.loggedInAs.TabIndex = 6;
+            this.loggedInAs.Text = "Logged in as:";
+            // 
             // cartLabel
             // 
             this.cartLabel.AutoSize = true;
             this.cartLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cartLabel.Location = new System.Drawing.Point(47, 61);
+            this.cartLabel.Location = new System.Drawing.Point(3, 67);
             this.cartLabel.Name = "cartLabel";
             this.cartLabel.Size = new System.Drawing.Size(175, 29);
             this.cartLabel.TabIndex = 4;
@@ -98,12 +122,13 @@
             this.checkOutBTN.TabIndex = 2;
             this.checkOutBTN.Text = "Checkout";
             this.checkOutBTN.UseVisualStyleBackColor = false;
+            this.checkOutBTN.Click += new System.EventHandler(this.CheckOutBTN_Click);
             // 
             // TotalLabelIn
             // 
             this.TotalLabelIn.AutoSize = true;
             this.TotalLabelIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TotalLabelIn.Location = new System.Drawing.Point(157, 22);
+            this.TotalLabelIn.Location = new System.Drawing.Point(179, 40);
             this.TotalLabelIn.Name = "TotalLabelIn";
             this.TotalLabelIn.Size = new System.Drawing.Size(78, 29);
             this.TotalLabelIn.TabIndex = 1;
@@ -113,7 +138,7 @@
             // 
             this.TotalLabel.AutoSize = true;
             this.TotalLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TotalLabel.Location = new System.Drawing.Point(47, 22);
+            this.TotalLabel.Location = new System.Drawing.Point(74, 38);
             this.TotalLabel.Name = "TotalLabel";
             this.TotalLabel.Size = new System.Drawing.Size(104, 29);
             this.TotalLabel.TabIndex = 0;
@@ -140,6 +165,7 @@
             this.DoubleBuffered = true;
             this.Name = "ShowCart";
             this.Text = "ShowCart";
+            this.Load += new System.EventHandler(this.ShowCart_Load);
             this.closeBTN.ResumeLayout(false);
             this.closeBTN.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -157,5 +183,7 @@
         private System.Windows.Forms.Label TotalLabelIn;
         private System.Windows.Forms.Label TotalLabel;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Label loggedInInput;
+        private System.Windows.Forms.Label loggedInAs;
     }
 }

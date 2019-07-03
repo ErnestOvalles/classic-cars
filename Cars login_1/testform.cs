@@ -26,7 +26,7 @@ namespace Classic_Cars
             connection.ConnectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\aruns\\Downloads\\CarsDB.mdf;Integrated Security=True;Connect Timeout=30";
             connection.Open();
 
-            Image img = Image.FromFile(@"C:\Users\aruns\Documents\GitHub\classic-cars\Cars login_1\Resources\CarIMGs\IMG_7.jpg"); ;
+            Image img = Image.FromFile(@"C:\Users\aruns\Source\Repos\Ernest157\classic-cars\Cars login_1\Resources\CarIMGs\SEDAN_2.jpg"); ;
             MemoryStream ms = new MemoryStream();
             img.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
             byte[] bytes = ms.ToArray();
@@ -34,7 +34,7 @@ namespace Classic_Cars
             String sqlQuery = "UPDATE CarsDB SET Image=@IMAGE WHERE Id=@ID";
 
             SqlCommand command = new SqlCommand(sqlQuery, connection);
-            command.Parameters.AddWithValue("@ID", 8);
+            command.Parameters.AddWithValue("@ID", 18);
             command.Parameters.AddWithValue("@IMAGE", bytes);
             command.ExecuteNonQuery();
 

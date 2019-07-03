@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Data;
+using System.IO;
 
 namespace Classic_Cars
 {
@@ -60,8 +61,21 @@ namespace Classic_Cars
 
         private void Button2_Click(object sender, EventArgs e)
         {
-            testform testform = new testform();
-            testform.Show();
+            SqlConnection connection = new SqlConnection();
+            connection.ConnectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\aruns\\Downloads\\CarsDB.mdf;Integrated Security=True;Connect Timeout=30";
+            connection.Open();
+
+            Image img = Image.FromFile(@"C:\Users\aruns\Source\Repos\Ernest157\classic-cars\Cars login_1\Resources\CarIMGs\SUV_7.jpg"); ;
+            MemoryStream ms = new MemoryStream();
+            img.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+            byte[] bytes = ms.ToArray();
+
+            String sqlQuery = "UPDATE CarsDB SET Image=@IMAGE WHERE Id=@ID";
+
+            SqlCommand command = new SqlCommand(sqlQuery, connection);
+            command.Parameters.AddWithValue("@ID", 16);
+            command.Parameters.AddWithValue("@IMAGE", bytes);
+            command.ExecuteNonQuery();
         }
     }
 }

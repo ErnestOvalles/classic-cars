@@ -74,6 +74,12 @@
     <Compile Include="ShowCart.Designer.cs">
       <DependentUpon>ShowCart.cs</DependentUpon>
     </Compile>
+    <Compile Include="ShowCatalog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ShowCatalog.Designer.cs">
+      <DependentUpon>ShowCatalog.cs</DependentUpon>
+    </Compile>
     <Compile Include="ShowPurchases.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -119,6 +125,9 @@
     <EmbeddedResource Include="ShowCart.resx">
       <DependentUpon>ShowCart.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ShowCatalog.resx">
+      <DependentUpon>ShowCatalog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ShowPurchases.resx">
       <DependentUpon>ShowPurchases.cs</DependentUpon>
     </EmbeddedResource>
@@ -156,13 +165,6 @@
     <None Include="Resources\Backgrounds\IMG_01711.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="CarsDB.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="CarsDB_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DependentUpon>CarsDB.mdf</DependentUpon>
-    </Content>
     <Content Include="Resources\CarIMGs\IMG_1.jpg" />
     <Content Include="Resources\CarIMGs\IMG_2.jpg" />
     <Content Include="Resources\CarIMGs\IMG_3.jpg" />
@@ -170,6 +172,20 @@
     <Content Include="Resources\CarIMGs\IMG_5.jpg" />
     <Content Include="Resources\CarIMGs\IMG_6.jpg" />
     <Content Include="Resources\CarIMGs\IMG_7.jpg" />
+    <Content Include="Resources\CarIMGs\SEDAN_1.jpg" />
+    <Content Include="Resources\CarIMGs\SEDAN_2.jpg" />
+    <Content Include="Resources\CarIMGs\SEDAN_3.jpg" />
+    <Content Include="Resources\CarIMGs\SEDAN_4.jpg" />
+    <Content Include="Resources\CarIMGs\SEDAN_5.jpg" />
+    <Content Include="Resources\CarIMGs\SEDAN_6.jpg" />
+    <Content Include="Resources\CarIMGs\SEDAN_7.jpg" />
+    <Content Include="Resources\CarIMGs\SUV_1.jpg" />
+    <Content Include="Resources\CarIMGs\SUV_2.jpg" />
+    <Content Include="Resources\CarIMGs\SUV_3.jpg" />
+    <Content Include="Resources\CarIMGs\SUV_4.jpg" />
+    <Content Include="Resources\CarIMGs\SUV_5.jpg" />
+    <Content Include="Resources\CarIMGs\SUV_6.jpg" />
+    <Content Include="Resources\CarIMGs\SUV_7.jpg" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
